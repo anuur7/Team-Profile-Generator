@@ -21,7 +21,11 @@ async function managerQuestions() {
     }])
 
     const templateContent = await fs.readFile('./index.html');
-    console.log((templateContent).toString())
+    const newTemplateContent = Object
+        .keys(answers)
+        .reduce((previous, current) => previous.replace(`{{${current}}}`, answers[current]), templateContent.toString()) 
+
+    await fs.writeFile('index.html', newTemplateContent)
 }
 
 managerQuestions()
