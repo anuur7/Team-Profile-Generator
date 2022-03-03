@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const { promises: fs } = require('fs')
 
 async function managerQuestions() {
     const answers = await inquirer.prompt([{
@@ -18,8 +19,9 @@ async function managerQuestions() {
         name: 'office number',
         message: 'What is your office number?'
     }])
-    
-    console.log(answers)
+
+    const templateContent = await fs.readFile('./index.html');
+    console.log((templateContent).toString())
 }
 
 managerQuestions()
