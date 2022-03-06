@@ -80,48 +80,83 @@ function menu() {
 
 promptManager();
 
-//   {
-//     // ENGINEER QUESTIONS
-//     type: "input",
-//     name: "engineer name",
-//     message: "Hi engineer, what is your name?",
-//   },
-//   {
-//     type: "input",
-//     name: "engineer id",
-//     message: "Enter your ID number",
-//   },
-//   {
-//     type: "input",
-//     name: "engineer email",
-//     message: "Enter your email address",
-//   },
-//   {
-//     type: "input",
-//     name: "engineer github",
-//     message: "What is your github username?",
-//   },
-//   {
-//     //INTERN QUESTIONS
-//     type: "input",
-//     name: "intern name",
-//     message: "Hi intern, what is your name?",
-//   },
-//   {
-//     type: "input",
-//     name: "intern id",
-//     message: "Enter your ID number",
-//   },
-//   {
-//     type: "input",
-//     name: "intern email",
-//     message: "Enter your email address",
-//   },
-//   {
-//     type: "input",
-//     name: "intern school",
-//     message: "What school did you study at?",
-//   },
-// ]);
+function promptEngineer(){
+  inquirer.prompt([
+    {
+            // ENGINEER QUESTIONS
+            type: "input",
+            name: "engineerName",
+            message: "Hi engineer, what is your name?",
+          },
+          {
+            type: "input",
+            name: "engineerId",
+            message: "Enter your ID number",
+          },
+          {
+            type: "input",
+            name: "engineerEmail",
+            message: "Enter your email address",
+          },
+          {
+            type: "input",
+            name: "engineerGithub",
+            message: "What is your github username?",
+          },
+  ]).then((answers)=>{
+    const engineer= new Engineer(
+      answers.engineerName,
+      answers.engineerId,
+      answers.engineerEmail,
+      answers.engineerGithub
+    )
+    members.push(engineer)
+    menu();
+  })
 
-// await fs.writeFile("./index.html", newTemplateContent);
+}
+
+function promptIntern(){
+  inquirer.prompt([
+     //INTERN QUESTIONS
+     {
+      type: "input",
+      name: "internName",
+      message: "Hi intern, what is your name?",
+    },
+    {
+      type: "input",
+      name: "internId",
+      message: "Enter your ID number",
+    },
+    {
+      type: "input",
+      name: "internEmail",
+      message: "Enter your email address",
+    },
+    {
+      type: "input",
+      name: "internSchool",
+      message: "What school did you study at?",
+    },
+
+  ]).then((answers)=>{
+     const intern= new Intern(
+       answers.internName,
+       answers.internId,
+       answers.internEmail,
+       answers.internSchool
+     )
+     members.push(intern)
+     menu();
+  })
+}
+
+//created function buildTeam to allow the index.html in dist to be overwritten with the new information input by the user. 
+function buildTeam(){
+  //write file sync takes the path to the file I want to overwrite
+  //and the function with the parameter that contains all the data with the new objects to be rendered.
+    fs.writeFileSync("./dist/index.html", renderHtml(members),(err)=>{
+      if(err) throw err;
+    })
+}
