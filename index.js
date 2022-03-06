@@ -154,7 +154,7 @@ function promptIntern(){
 
 //created function buildTeam to allow the index.html in dist to be overwritten with the new information input by the user. 
 function buildTeam(){
-  //write file sync takes the path to the file I want to overwrite
+  //write file sync takes the path to the file I want to overwrite.
   //and the function with the parameter that contains all the data with the new objects to be rendered.
     fs.writeFileSync("./dist/index.html", renderHtml(members),(err)=>{
       if(err) throw err;
