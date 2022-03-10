@@ -42,7 +42,7 @@ function promptManager() {
       //use the Manager constructor to create my new Manager object to be displayed.
       const manager = new Manager(
         answers.managerName,
-        answers.managerID,
+        answers.managerId,
         answers.managerEmail,
         answers.managerOfficeNumber
       );
@@ -56,26 +56,28 @@ function promptManager() {
 
 //create function with main menu for the next team members and/or Teambuild
 function menu() {
-  inquirer.prompt([
-    {
-      type: 'list',
-      name: 'mainMenu',
-      message:'What would you like to do next?',
-      choices:['Engineer", "Intern", "Build Team']
-    }
-  ]).then((answers)=>{
-    //build a switch case to deal with the 3 options given to the user
-    switch(answers.mainMenu){
-      case"Engineer":
-        promptEngineer();
-        break;
-      case "Intern":
-        promptIntern()
-        break;
-      default:
-        buildTeam();
-    }
-  })
+  inquirer
+    .prompt([
+      {
+        type: "list",
+        name: "mainMenu",
+        message: "What would you like to do next?",
+        choices: ["Engineer", "Intern", "Build Team"],
+      },
+    ])
+    .then((answers) => {
+      //build a switch case to deal with the 3 options given to the user
+      switch (answers.mainMenu) {
+        case "Engineer":
+          promptEngineer();
+          break;
+        case "Intern":
+          promptIntern();
+          break;
+        default:
+          buildTeam();
+      }
+    });
 }
 
 promptManager();

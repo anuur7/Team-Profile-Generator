@@ -24,9 +24,12 @@ GIVEN a command-line application that accepts user input:
 ● WHEN I decide to finish building my team THEN I exit the application, and the HTML is generated
 
 
-Deployed Link: https://anuur7.github.io/Team-Profile-Generator/
+# Deployed Link:
+https://anuur7.github.io/Team-Profile-Generator/
 
-Link for recording: 
+# Link for recording: 
+https://drive.google.com/file/d/1SioMb3zChuLNoGmB5H7Hgd79TgWnt3S2/view?usp=sharing
 
-![alt text](images/)
+# Application image:
+![alt text](images/myteam.png)
 

@@ -48,6 +48,7 @@ h3{
 .list-card{
     background-color: white;
     color: black;
+    padding-bottom: 0.1vh;
 }
 
 li{
