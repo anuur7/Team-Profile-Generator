@@ -28,7 +28,7 @@ GIVEN a command-line application that accepts user input:
 https://anuur7.github.io/Team-Profile-Generator/
 
 # Link for recording: 
-https://drive.google.com/file/d/1SioMb3zChuLNoGmB5H7Hgd79TgWnt3S2/view?usp=sharing
+https://drive.google.com/file/d/1NnGOBAhGc5O_Aqn-JXdlTes0_LItac0h/view?usp=sharing
 
 # Application image:
 ![alt text](images/myteam.png)
